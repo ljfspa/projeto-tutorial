@@ -1,0 +1,32 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "pessoa",
+            "otherEntityName": "pessoa",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "veterinario"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nomeVeterinario",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cRMV",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "especialidade",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170908233107",
+    "entityTableName": "veterinario",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

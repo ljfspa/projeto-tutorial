@@ -1,0 +1,76 @@
+
+<div *ngIf="pessoa">
+    <h2><span jhiTranslate="clinicvetApp.pessoa.detail.title">Pessoa</span> {{pessoa.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="clinicvetApp.pessoa.fotoPessoa">Foto Pessoa</span></dt>
+        <dd>
+            <div *ngIf="pessoa.fotoPessoa">
+                <a (click)="openFile(pessoa.fotoPessoaContentType, pessoa.fotoPessoa)">
+                    <img [src]="'data:' + pessoa.fotoPessoaContentType + ';base64,' + pessoa.fotoPessoa" style="max-width: 100%;" alt="pessoa image"/>
+                </a>
+                {{pessoa.fotoPessoaContentType}}, {{byteSize(pessoa.fotoPessoa)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.pessoa.nome">Nome</span></dt>
+        <dd>
+            <span>{{pessoa.nome}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.pessoa.endereco">Endereco</span></dt>
+        <dd>
+            <span>{{pessoa.endereco}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.pessoa.rG">R G</span></dt>
+        <dd>
+            <span>{{pessoa.rG}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.pessoa.cpfPessoa">Cpf Pessoa</span></dt>
+        <dd>
+            <span>{{pessoa.cpfPessoa}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.pessoa.cep">Cep</span></dt>
+        <dd>
+            <span>{{pessoa.cep}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.pessoa.telefone">Telefone</span></dt>
+        <dd>
+            <span>{{pessoa.telefone}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.pessoa.dataCadastro">Data Cadastro</span></dt>
+        <dd>
+            <span>{{pessoa.dataCadastro | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.pessoa.bairro">Bairro</span></dt>
+        <dd>
+            <div *ngIf="pessoa.bairro">
+                <a [routerLink]="['/bairro', pessoa.bairro?.id]">{{pessoa.bairro?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.pessoa.cidade">Cidade</span></dt>
+        <dd>
+            <div *ngIf="pessoa.cidade">
+                <a [routerLink]="['/cidade', pessoa.cidade?.id]">{{pessoa.cidade?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.pessoa.estado">Estado</span></dt>
+        <dd>
+            <div *ngIf="pessoa.estado">
+                <a [routerLink]="['/estado', pessoa.estado?.id]">{{pessoa.estado?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'pessoa/'+ pessoa.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

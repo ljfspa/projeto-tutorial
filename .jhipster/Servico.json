@@ -1,0 +1,22 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "agendamento",
+            "otherEntityName": "agendamento",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "servico",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170908233116",
+    "entityTableName": "servico",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

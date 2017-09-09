@@ -1,0 +1,21 @@
+{
+    "clinicvetApp": {
+        "especie" : {
+            "home": {
+                "title": "Especies",
+                "createLabel": "Criar novo Especie",
+                "createOrEditLabel": "Criar ou editar Especie"
+            },
+            "created": "Um novo Especie foi criado com o identificador {{ param }}",
+            "updated": "Um Especie foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Especie foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Especie {{ id }}?"
+            },
+            "detail": {
+                "title": "Especie"
+            },
+            "especie": "Especie"
+        }
+    }
+}

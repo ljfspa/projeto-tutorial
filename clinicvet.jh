@@ -1,0 +1,140 @@
+entity Pessoa {
+    FotoPessoa ImageBlob,
+    Nome String required,
+    Endereco String required,
+    RG Integer,
+    CpfPessoa String,
+    Cep	String,
+    Telefone String,
+    DataCadastro ZonedDateTime
+}
+
+entity Veterinario {
+    NomeVeterinario String,
+    CRMV String,
+    Especialidade String
+}
+
+entity Cliente {
+    NomeCliente String,
+    Profisao String
+}
+
+entity Funcionario {
+	Matricula Integer,
+    Tipo Funcao 
+}
+
+enum Funcao {
+    GERENTE, ADMINISTRADOR, ATENDENTE, TOSADOR
+}
+
+entity Animal {
+	FotoAnimal ImageBlob,
+    NomeAnimal String,
+    Sexo String,
+    Pelagem	String,
+    Obs_Tosa String,
+    Nascimento LocalDate,
+    Porte TpPorte
+}
+
+enum TpPorte {
+    PEQUENO, MEDIO, GRANDE
+}
+
+entity Bairro {
+	Bairro String
+}
+
+entity Cidade {
+	Cidade String
+}
+
+entity Estado {
+	UF String,
+	EstadoNome String
+}
+
+entity Consulta {
+	DataConsulta LocalDate,
+    HoraConsulta String,
+    MotivoConsulta String,
+    DescConsulta String,
+    Recetuario String,
+	Pesagem Long
+}
+
+entity Agendamento {
+	DataAgenda LocalDate,
+    HoraAgenda String
+}
+
+entity Servico {
+	Servico String
+}
+
+entity Especie {
+	Especie String
+}
+
+entity Raca {
+	Raca String
+}
+
+entity Produto {
+	Nome String,
+    Unidade Integer,
+    QtEstoque Long,
+    Validade LocalDate,
+    PrecoCompra Long,
+    PrecoVenda Long
+}
+
+entity Vacina {
+	VacinaName String,
+    AplicVacina String
+}
+
+entity Vermifugo {
+	VermifugoName String,
+    AplicVermifugo String
+}
+
+entity Tratamento {
+	Nome String,
+    Descricao String,
+    DataAplicTrat ZonedDateTime
+}
+
+relationship OneToOne {
+	Veterinario{pessoa} to Pessoa,
+	Funcionario{pessoa} to Pessoa,
+	Animal{raca} to Raca,
+	Animal{especie} to Especie
+}
+
+relationship OneToMany {
+  Agendamento{consulta} to Consulta,
+  Agendamento{servico} to Servico,
+  Consulta{vacina} to Vacina,
+  Consulta{vermifugo} to Vermifugo,
+  Consulta{tratamento} to Tratamento,
+  Bairro{pessoa} to Pessoa,
+  Cidade{pessoa} to Pessoa,
+  Estado{pessoa} to Pessoa
+}
+
+relationship ManyToOne {
+	Funcionario{manager} to Funcionario
+}
+
+
+// Set pagination options
+//paginate JobHistory, Employee with infinite-scroll
+//paginate Job with pagination
+
+//dto * with mapstruct
+
+// Set an angular suffix
+//angularSuffix * with mySuffix

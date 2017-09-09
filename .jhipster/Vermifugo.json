@@ -1,0 +1,26 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "consulta",
+            "otherEntityName": "consulta",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "vermifugoName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "aplicVermifugo",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170908233121",
+    "entityTableName": "vermifugo",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

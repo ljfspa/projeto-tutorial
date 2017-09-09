@@ -1,0 +1,21 @@
+{
+    "clinicvetApp": {
+        "especie" : {
+            "home": {
+                "title": "Especies",
+                "createLabel": "Create a new Especie",
+                "createOrEditLabel": "Create or edit a Especie"
+            },
+            "created": "A new Especie is created with identifier {{ param }}",
+            "updated": "A Especie is updated with identifier {{ param }}",
+            "deleted": "A Especie is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Especie {{ id }}?"
+            },
+            "detail": {
+                "title": "Especie"
+            },
+            "especie": "Especie"
+        }
+    }
+}

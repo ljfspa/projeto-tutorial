@@ -1,0 +1,32 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "consulta",
+            "otherEntityName": "consulta",
+            "otherEntityRelationshipName": "agendamento"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "servico",
+            "otherEntityName": "servico",
+            "otherEntityRelationshipName": "agendamento"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "dataAgenda",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "horaAgenda",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170908233115",
+    "entityTableName": "agendamento",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

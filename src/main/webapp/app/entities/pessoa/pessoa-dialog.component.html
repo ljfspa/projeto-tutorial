@@ -1,0 +1,112 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myPessoaLabel" jhiTranslate="clinicvetApp.pessoa.home.createOrEditLabel">Create or edit a Pessoa</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!pessoa.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="pessoa.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="clinicvetApp.pessoa.fotoPessoa" for="field_fotoPessoa">Foto Pessoa</label>
+            <div>
+                <img [src]="'data:' + pessoa.fotoPessoaContentType + ';base64,' + pessoa.fotoPessoa" style="max-height: 100px;" *ngIf="pessoa.fotoPessoa" alt="pessoa image"/>
+                <div *ngIf="pessoa.fotoPessoa" class="form-text text-danger clearfix">
+                    <span class="pull-left">{{pessoa.fotoPessoaContentType}}, {{byteSize(pessoa.fotoPessoa)}}</span>
+                    <button type="button" (click)="clearInputImage('fotoPessoa', 'fotoPessoaContentType', 'fileImage')" class="btn btn-default btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_fotoPessoa" (change)="setFileData($event, pessoa, 'fotoPessoa', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+            </div>
+            <input type="hidden" class="form-control" name="fotoPessoa" id="field_fotoPessoa"
+                [(ngModel)]="pessoa.fotoPessoa"  />
+            <input type="hidden" class="form-control" name="fotoPessoaContentType" id="field_fotoPessoaContentType"
+                [(ngModel)]="pessoa.fotoPessoaContentType" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="clinicvetApp.pessoa.nome" for="field_nome">Nome</label>
+            <input type="text" class="form-control" name="nome" id="field_nome"
+                [(ngModel)]="pessoa.nome" required />
+            <div [hidden]="!(editForm.controls.nome?.dirty && editForm.controls.nome?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.nome?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="clinicvetApp.pessoa.endereco" for="field_endereco">Endereco</label>
+            <input type="text" class="form-control" name="endereco" id="field_endereco"
+                [(ngModel)]="pessoa.endereco" required />
+            <div [hidden]="!(editForm.controls.endereco?.dirty && editForm.controls.endereco?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.endereco?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="clinicvetApp.pessoa.rG" for="field_rG">R G</label>
+            <input type="number" class="form-control" name="rG" id="field_rG"
+                [(ngModel)]="pessoa.rG"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="clinicvetApp.pessoa.cpfPessoa" for="field_cpfPessoa">Cpf Pessoa</label>
+            <input type="text" class="form-control" name="cpfPessoa" id="field_cpfPessoa"
+                [(ngModel)]="pessoa.cpfPessoa"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="clinicvetApp.pessoa.cep" for="field_cep">Cep</label>
+            <input type="text" class="form-control" name="cep" id="field_cep"
+                [(ngModel)]="pessoa.cep"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="clinicvetApp.pessoa.telefone" for="field_telefone">Telefone</label>
+            <input type="text" class="form-control" name="telefone" id="field_telefone"
+                [(ngModel)]="pessoa.telefone"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="clinicvetApp.pessoa.dataCadastro" for="field_dataCadastro">Data Cadastro</label>
+            <div class="d-flex">
+                <input id="field_dataCadastro" type="datetime-local" class="form-control" name="dataCadastro" [(ngModel)]="pessoa.dataCadastro"
+                  />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="clinicvetApp.pessoa.bairro" for="field_bairro">Bairro</label>
+            <select class="form-control" id="field_bairro" name="bairro" [(ngModel)]="pessoa.bairro" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="bairroOption.id === pessoa.bairro?.id ? pessoa.bairro : bairroOption" *ngFor="let bairroOption of bairros; trackBy: trackBairroById">{{bairroOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="clinicvetApp.pessoa.cidade" for="field_cidade">Cidade</label>
+            <select class="form-control" id="field_cidade" name="cidade" [(ngModel)]="pessoa.cidade" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="cidadeOption.id === pessoa.cidade?.id ? pessoa.cidade : cidadeOption" *ngFor="let cidadeOption of cidades; trackBy: trackCidadeById">{{cidadeOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="clinicvetApp.pessoa.estado" for="field_estado">Estado</label>
+            <select class="form-control" id="field_estado" name="estado" [(ngModel)]="pessoa.estado" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="estadoOption.id === pessoa.estado?.id ? pessoa.estado : estadoOption" *ngFor="let estadoOption of estados; trackBy: trackEstadoById">{{estadoOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

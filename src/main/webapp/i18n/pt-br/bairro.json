@@ -1,0 +1,22 @@
+{
+    "clinicvetApp": {
+        "bairro" : {
+            "home": {
+                "title": "Bairros",
+                "createLabel": "Criar novo Bairro",
+                "createOrEditLabel": "Criar ou editar Bairro"
+            },
+            "created": "Um novo Bairro foi criado com o identificador {{ param }}",
+            "updated": "Um Bairro foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Bairro foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Bairro {{ id }}?"
+            },
+            "detail": {
+                "title": "Bairro"
+            },
+            "bairro": "Bairro",
+            "pessoa": "Pessoa"
+        }
+    }
+}

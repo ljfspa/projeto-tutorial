@@ -1,0 +1,39 @@
+
+<div *ngIf="tratamento">
+    <h2><span jhiTranslate="clinicvetApp.tratamento.detail.title">Tratamento</span> {{tratamento.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="clinicvetApp.tratamento.nome">Nome</span></dt>
+        <dd>
+            <span>{{tratamento.nome}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.tratamento.descricao">Descricao</span></dt>
+        <dd>
+            <span>{{tratamento.descricao}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.tratamento.dataAplicTrat">Data Aplic Trat</span></dt>
+        <dd>
+            <span>{{tratamento.dataAplicTrat | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.tratamento.consulta">Consulta</span></dt>
+        <dd>
+            <div *ngIf="tratamento.consulta">
+                <a [routerLink]="['/consulta', tratamento.consulta?.id]">{{tratamento.consulta?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'tratamento/'+ tratamento.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

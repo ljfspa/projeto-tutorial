@@ -1,0 +1,85 @@
+<div>
+    <h2>
+        <span jhiTranslate="clinicvetApp.animal.home.title">Animals</span>
+        <button class="btn btn-primary float-right jh-create-entity create-animal" [routerLink]="['/', { outlets: { popup: ['animal-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="clinicvetApp.animal.home.createLabel">
+            Create new Animal
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="animals">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="clinicvetApp.animal.fotoAnimal">Foto Animal</span></th>
+            <th><span jhiTranslate="clinicvetApp.animal.nomeAnimal">Nome Animal</span></th>
+            <th><span jhiTranslate="clinicvetApp.animal.sexo">Sexo</span></th>
+            <th><span jhiTranslate="clinicvetApp.animal.pelagem">Pelagem</span></th>
+            <th><span jhiTranslate="clinicvetApp.animal.obsTosa">Obs Tosa</span></th>
+            <th><span jhiTranslate="clinicvetApp.animal.nascimento">Nascimento</span></th>
+            <th><span jhiTranslate="clinicvetApp.animal.porte">Porte</span></th>
+            <th><span jhiTranslate="clinicvetApp.animal.raca">Raca</span></th>
+            <th><span jhiTranslate="clinicvetApp.animal.especie">Especie</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let animal of animals ;trackBy: trackId">
+                <td><a [routerLink]="['../animal', animal.id ]">{{animal.id}}</a></td>
+                <td>
+                    <a *ngIf="animal.fotoAnimal" (click)="openFile(animal.fotoAnimalContentType, animal.fotoAnimal)">
+                        <img [src]="'data:' + animal.fotoAnimalContentType + ';base64,' + animal.fotoAnimal" style="max-height: 30px;" alt="animal image"/>
+                    </a>
+                    <span *ngIf="animal.fotoAnimal">{{animal.fotoAnimalContentType}}, {{byteSize(animal.fotoAnimal)}}</span>
+                </td>
+                <td>{{animal.nomeAnimal}}</td>
+                <td>{{animal.sexo}}</td>
+                <td>{{animal.pelagem}}</td>
+                <td>{{animal.obsTosa}}</td>
+                <td>{{animal.nascimento | date:'mediumDate'}}</td>
+                <td jhiTranslate="{{'clinicvetApp.TpPorte.' + animal.porte}}">{{animal.porte}}</td>
+                <td>
+                    <div *ngIf="animal.raca">
+                        <a [routerLink]="['../raca', animal.raca?.id ]" >{{animal.raca?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="animal.especie">
+                        <a [routerLink]="['../especie', animal.especie?.id ]" >{{animal.especie?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../animal', animal.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'animal/'+ animal.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'animal/'+ animal.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

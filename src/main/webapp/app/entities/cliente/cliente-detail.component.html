@@ -1,0 +1,29 @@
+
+<div *ngIf="cliente">
+    <h2><span jhiTranslate="clinicvetApp.cliente.detail.title">Cliente</span> {{cliente.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="clinicvetApp.cliente.nomeCliente">Nome Cliente</span></dt>
+        <dd>
+            <span>{{cliente.nomeCliente}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.cliente.profisao">Profisao</span></dt>
+        <dd>
+            <span>{{cliente.profisao}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'cliente/'+ cliente.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

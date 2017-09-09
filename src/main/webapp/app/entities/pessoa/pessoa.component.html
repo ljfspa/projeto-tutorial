@@ -1,0 +1,93 @@
+<div>
+    <h2>
+        <span jhiTranslate="clinicvetApp.pessoa.home.title">Pessoas</span>
+        <button class="btn btn-primary float-right jh-create-entity create-pessoa" [routerLink]="['/', { outlets: { popup: ['pessoa-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="clinicvetApp.pessoa.home.createLabel">
+            Create new Pessoa
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="pessoas">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="clinicvetApp.pessoa.fotoPessoa">Foto Pessoa</span></th>
+            <th><span jhiTranslate="clinicvetApp.pessoa.nome">Nome</span></th>
+            <th><span jhiTranslate="clinicvetApp.pessoa.endereco">Endereco</span></th>
+            <th><span jhiTranslate="clinicvetApp.pessoa.rG">R G</span></th>
+            <th><span jhiTranslate="clinicvetApp.pessoa.cpfPessoa">Cpf Pessoa</span></th>
+            <th><span jhiTranslate="clinicvetApp.pessoa.cep">Cep</span></th>
+            <th><span jhiTranslate="clinicvetApp.pessoa.telefone">Telefone</span></th>
+            <th><span jhiTranslate="clinicvetApp.pessoa.dataCadastro">Data Cadastro</span></th>
+            <th><span jhiTranslate="clinicvetApp.pessoa.bairro">Bairro</span></th>
+            <th><span jhiTranslate="clinicvetApp.pessoa.cidade">Cidade</span></th>
+            <th><span jhiTranslate="clinicvetApp.pessoa.estado">Estado</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let pessoa of pessoas ;trackBy: trackId">
+                <td><a [routerLink]="['../pessoa', pessoa.id ]">{{pessoa.id}}</a></td>
+                <td>
+                    <a *ngIf="pessoa.fotoPessoa" (click)="openFile(pessoa.fotoPessoaContentType, pessoa.fotoPessoa)">
+                        <img [src]="'data:' + pessoa.fotoPessoaContentType + ';base64,' + pessoa.fotoPessoa" style="max-height: 30px;" alt="pessoa image"/>
+                    </a>
+                    <span *ngIf="pessoa.fotoPessoa">{{pessoa.fotoPessoaContentType}}, {{byteSize(pessoa.fotoPessoa)}}</span>
+                </td>
+                <td>{{pessoa.nome}}</td>
+                <td>{{pessoa.endereco}}</td>
+                <td>{{pessoa.rG}}</td>
+                <td>{{pessoa.cpfPessoa}}</td>
+                <td>{{pessoa.cep}}</td>
+                <td>{{pessoa.telefone}}</td>
+                <td>{{pessoa.dataCadastro | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="pessoa.bairro">
+                        <a [routerLink]="['../bairro', pessoa.bairro?.id ]" >{{pessoa.bairro?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="pessoa.cidade">
+                        <a [routerLink]="['../cidade', pessoa.cidade?.id ]" >{{pessoa.cidade?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="pessoa.estado">
+                        <a [routerLink]="['../estado', pessoa.estado?.id ]" >{{pessoa.estado?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../pessoa', pessoa.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'pessoa/'+ pessoa.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'pessoa/'+ pessoa.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

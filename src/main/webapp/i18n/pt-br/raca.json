@@ -1,0 +1,21 @@
+{
+    "clinicvetApp": {
+        "raca" : {
+            "home": {
+                "title": "Racas",
+                "createLabel": "Criar novo Raca",
+                "createOrEditLabel": "Criar ou editar Raca"
+            },
+            "created": "Um novo Raca foi criado com o identificador {{ param }}",
+            "updated": "Um Raca foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Raca foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Raca {{ id }}?"
+            },
+            "detail": {
+                "title": "Raca"
+            },
+            "raca": "Raca"
+        }
+    }
+}

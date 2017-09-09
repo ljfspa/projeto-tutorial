@@ -1,0 +1,26 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "pessoa",
+            "otherEntityName": "pessoa",
+            "otherEntityRelationshipName": "estado"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "uF",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "estadoNome",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170908233113",
+    "entityTableName": "estado",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

@@ -1,0 +1,94 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myAnimalLabel" jhiTranslate="clinicvetApp.animal.home.createOrEditLabel">Create or edit a Animal</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!animal.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="animal.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="clinicvetApp.animal.fotoAnimal" for="field_fotoAnimal">Foto Animal</label>
+            <div>
+                <img [src]="'data:' + animal.fotoAnimalContentType + ';base64,' + animal.fotoAnimal" style="max-height: 100px;" *ngIf="animal.fotoAnimal" alt="animal image"/>
+                <div *ngIf="animal.fotoAnimal" class="form-text text-danger clearfix">
+                    <span class="pull-left">{{animal.fotoAnimalContentType}}, {{byteSize(animal.fotoAnimal)}}</span>
+                    <button type="button" (click)="clearInputImage('fotoAnimal', 'fotoAnimalContentType', 'fileImage')" class="btn btn-default btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_fotoAnimal" (change)="setFileData($event, animal, 'fotoAnimal', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+            </div>
+            <input type="hidden" class="form-control" name="fotoAnimal" id="field_fotoAnimal"
+                [(ngModel)]="animal.fotoAnimal"  />
+            <input type="hidden" class="form-control" name="fotoAnimalContentType" id="field_fotoAnimalContentType"
+                [(ngModel)]="animal.fotoAnimalContentType" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="clinicvetApp.animal.nomeAnimal" for="field_nomeAnimal">Nome Animal</label>
+            <input type="text" class="form-control" name="nomeAnimal" id="field_nomeAnimal"
+                [(ngModel)]="animal.nomeAnimal"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="clinicvetApp.animal.sexo" for="field_sexo">Sexo</label>
+            <input type="text" class="form-control" name="sexo" id="field_sexo"
+                [(ngModel)]="animal.sexo"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="clinicvetApp.animal.pelagem" for="field_pelagem">Pelagem</label>
+            <input type="text" class="form-control" name="pelagem" id="field_pelagem"
+                [(ngModel)]="animal.pelagem"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="clinicvetApp.animal.obsTosa" for="field_obsTosa">Obs Tosa</label>
+            <input type="text" class="form-control" name="obsTosa" id="field_obsTosa"
+                [(ngModel)]="animal.obsTosa"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="clinicvetApp.animal.nascimento" for="field_nascimento">Nascimento</label>
+            <div class="input-group">
+                <input id="field_nascimento" type="text" class="form-control" name="nascimento" ngbDatepicker  #nascimentoDp="ngbDatepicker" [(ngModel)]="animal.nascimento"
+                />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" (click)="nascimentoDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="clinicvetApp.animal.porte" for="field_porte">Porte</label>
+            <select class="form-control" name="porte" [(ngModel)]="animal.porte" id="field_porte" >
+                <option value="PEQUENO">{{'clinicvetApp.TpPorte.PEQUENO' | translate}}</option>
+                <option value="MEDIO">{{'clinicvetApp.TpPorte.MEDIO' | translate}}</option>
+                <option value="GRANDE">{{'clinicvetApp.TpPorte.GRANDE' | translate}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="clinicvetApp.animal.raca" for="field_raca">Raca</label>
+            <select class="form-control" id="field_raca" name="raca" [(ngModel)]="animal.raca">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="racaOption.id === animal.raca?.id ? animal.raca : racaOption" *ngFor="let racaOption of racas; trackBy: trackRacaById">{{racaOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="clinicvetApp.animal.especie" for="field_especie">Especie</label>
+            <select class="form-control" id="field_especie" name="especie" [(ngModel)]="animal.especie">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="especieOption.id === animal.especie?.id ? animal.especie : especieOption" *ngFor="let especieOption of especies; trackBy: trackEspecieById">{{especieOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

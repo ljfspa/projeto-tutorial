@@ -1,0 +1,60 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "vacina",
+            "otherEntityName": "vacina",
+            "otherEntityRelationshipName": "consulta"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "vermifugo",
+            "otherEntityName": "vermifugo",
+            "otherEntityRelationshipName": "consulta"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "tratamento",
+            "otherEntityName": "tratamento",
+            "otherEntityRelationshipName": "consulta"
+        },
+        {
+            "relationshipName": "agendamento",
+            "otherEntityName": "agendamento",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "dataConsulta",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "horaConsulta",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "motivoConsulta",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descConsulta",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "recetuario",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pesagem",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20170908233114",
+    "entityTableName": "consulta",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

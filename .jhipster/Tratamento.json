@@ -1,0 +1,30 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "consulta",
+            "otherEntityName": "consulta",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descricao",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dataAplicTrat",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "changelogDate": "20170908233122",
+    "entityTableName": "tratamento",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

@@ -1,0 +1,24 @@
+{
+    "clinicvetApp": {
+        "funcionario" : {
+            "home": {
+                "title": "Funcionarios",
+                "createLabel": "Create a new Funcionario",
+                "createOrEditLabel": "Create or edit a Funcionario"
+            },
+            "created": "A new Funcionario is created with identifier {{ param }}",
+            "updated": "A Funcionario is updated with identifier {{ param }}",
+            "deleted": "A Funcionario is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Funcionario {{ id }}?"
+            },
+            "detail": {
+                "title": "Funcionario"
+            },
+            "matricula": "Matricula",
+            "tipo": "Tipo",
+            "pessoa": "Pessoa",
+            "manager": "Manager"
+        }
+    }
+}

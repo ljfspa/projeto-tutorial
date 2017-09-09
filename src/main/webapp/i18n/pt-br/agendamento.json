@@ -1,0 +1,24 @@
+{
+    "clinicvetApp": {
+        "agendamento" : {
+            "home": {
+                "title": "Agendamentos",
+                "createLabel": "Criar novo Agendamento",
+                "createOrEditLabel": "Criar ou editar Agendamento"
+            },
+            "created": "Um novo Agendamento foi criado com o identificador {{ param }}",
+            "updated": "Um Agendamento foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Agendamento foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Agendamento {{ id }}?"
+            },
+            "detail": {
+                "title": "Agendamento"
+            },
+            "dataAgenda": "Data Agenda",
+            "horaAgenda": "Hora Agenda",
+            "consulta": "Consulta",
+            "servico": "Servico"
+        }
+    }
+}

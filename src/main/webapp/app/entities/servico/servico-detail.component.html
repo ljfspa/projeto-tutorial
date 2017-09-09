@@ -1,0 +1,31 @@
+
+<div *ngIf="servico">
+    <h2><span jhiTranslate="clinicvetApp.servico.detail.title">Servico</span> {{servico.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="clinicvetApp.servico.servico">Servico</span></dt>
+        <dd>
+            <span>{{servico.servico}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.servico.agendamento">Agendamento</span></dt>
+        <dd>
+            <div *ngIf="servico.agendamento">
+                <a [routerLink]="['/agendamento', servico.agendamento?.id]">{{servico.agendamento?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'servico/'+ servico.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

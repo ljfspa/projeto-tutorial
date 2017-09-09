@@ -1,0 +1,29 @@
+
+<div *ngIf="estado">
+    <h2><span jhiTranslate="clinicvetApp.estado.detail.title">Estado</span> {{estado.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="clinicvetApp.estado.uF">U F</span></dt>
+        <dd>
+            <span>{{estado.uF}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.estado.estadoNome">Estado Nome</span></dt>
+        <dd>
+            <span>{{estado.estadoNome}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'estado/'+ estado.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

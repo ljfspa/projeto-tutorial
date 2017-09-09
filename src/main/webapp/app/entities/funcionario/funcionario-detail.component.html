@@ -1,0 +1,41 @@
+
+<div *ngIf="funcionario">
+    <h2><span jhiTranslate="clinicvetApp.funcionario.detail.title">Funcionario</span> {{funcionario.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="clinicvetApp.funcionario.matricula">Matricula</span></dt>
+        <dd>
+            <span>{{funcionario.matricula}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.funcionario.tipo">Tipo</span></dt>
+        <dd>
+            <span jhiTranslate="{{'clinicvetApp.Funcao.' + funcionario.tipo}}">{{funcionario.tipo}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.funcionario.pessoa">Pessoa</span></dt>
+        <dd>
+            <div *ngIf="funcionario.pessoa">
+                <a [routerLink]="['/pessoa', funcionario.pessoa?.id]">{{funcionario.pessoa?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.funcionario.manager">Manager</span></dt>
+        <dd>
+            <div *ngIf="funcionario.manager">
+                <a [routerLink]="['/funcionario', funcionario.manager?.id]">{{funcionario.manager?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'funcionario/'+ funcionario.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

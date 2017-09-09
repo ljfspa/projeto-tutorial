@@ -1,0 +1,23 @@
+{
+    "clinicvetApp": {
+        "vermifugo" : {
+            "home": {
+                "title": "Vermifugos",
+                "createLabel": "Create a new Vermifugo",
+                "createOrEditLabel": "Create or edit a Vermifugo"
+            },
+            "created": "A new Vermifugo is created with identifier {{ param }}",
+            "updated": "A Vermifugo is updated with identifier {{ param }}",
+            "deleted": "A Vermifugo is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Vermifugo {{ id }}?"
+            },
+            "detail": {
+                "title": "Vermifugo"
+            },
+            "vermifugoName": "Vermifugo Name",
+            "aplicVermifugo": "Aplic Vermifugo",
+            "consulta": "Consulta"
+        }
+    }
+}

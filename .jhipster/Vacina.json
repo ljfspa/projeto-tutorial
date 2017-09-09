@@ -1,0 +1,26 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "consulta",
+            "otherEntityName": "consulta",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "vacinaName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "aplicVacina",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170908233120",
+    "entityTableName": "vacina",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

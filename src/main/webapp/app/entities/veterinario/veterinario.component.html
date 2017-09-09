@@ -1,0 +1,66 @@
+<div>
+    <h2>
+        <span jhiTranslate="clinicvetApp.veterinario.home.title">Veterinarios</span>
+        <button class="btn btn-primary float-right jh-create-entity create-veterinario" [routerLink]="['/', { outlets: { popup: ['veterinario-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="clinicvetApp.veterinario.home.createLabel">
+            Create new Veterinario
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="veterinarios">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="clinicvetApp.veterinario.nomeVeterinario">Nome Veterinario</span></th>
+            <th><span jhiTranslate="clinicvetApp.veterinario.cRMV">C RMV</span></th>
+            <th><span jhiTranslate="clinicvetApp.veterinario.especialidade">Especialidade</span></th>
+            <th><span jhiTranslate="clinicvetApp.veterinario.pessoa">Pessoa</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let veterinario of veterinarios ;trackBy: trackId">
+                <td><a [routerLink]="['../veterinario', veterinario.id ]">{{veterinario.id}}</a></td>
+                <td>{{veterinario.nomeVeterinario}}</td>
+                <td>{{veterinario.cRMV}}</td>
+                <td>{{veterinario.especialidade}}</td>
+                <td>
+                    <div *ngIf="veterinario.pessoa">
+                        <a [routerLink]="['../pessoa', veterinario.pessoa?.id ]" >{{veterinario.pessoa?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../veterinario', veterinario.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'veterinario/'+ veterinario.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'veterinario/'+ veterinario.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+{
+    "clinicvetApp": {
+        "Funcao" : {
+            "null": "",
+            "GERENTE": "GERENTE",
+            "ADMINISTRADOR": "ADMINISTRADOR",
+            "ATENDENTE": "ATENDENTE",
+            "TOSADOR": "TOSADOR"
+        }
+    }
+}

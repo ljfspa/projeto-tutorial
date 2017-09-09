@@ -1,0 +1,22 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "pessoa",
+            "otherEntityName": "pessoa",
+            "otherEntityRelationshipName": "bairro"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "bairro",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170908233111",
+    "entityTableName": "bairro",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

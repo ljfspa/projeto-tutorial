@@ -1,0 +1,35 @@
+
+<div *ngIf="vacina">
+    <h2><span jhiTranslate="clinicvetApp.vacina.detail.title">Vacina</span> {{vacina.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="clinicvetApp.vacina.vacinaName">Vacina Name</span></dt>
+        <dd>
+            <span>{{vacina.vacinaName}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.vacina.aplicVacina">Aplic Vacina</span></dt>
+        <dd>
+            <span>{{vacina.aplicVacina}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.vacina.consulta">Consulta</span></dt>
+        <dd>
+            <div *ngIf="vacina.consulta">
+                <a [routerLink]="['/consulta', vacina.consulta?.id]">{{vacina.consulta?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'vacina/'+ vacina.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

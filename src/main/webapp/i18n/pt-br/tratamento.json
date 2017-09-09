@@ -1,0 +1,24 @@
+{
+    "clinicvetApp": {
+        "tratamento" : {
+            "home": {
+                "title": "Tratamentos",
+                "createLabel": "Criar novo Tratamento",
+                "createOrEditLabel": "Criar ou editar Tratamento"
+            },
+            "created": "Um novo Tratamento foi criado com o identificador {{ param }}",
+            "updated": "Um Tratamento foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Tratamento foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Tratamento {{ id }}?"
+            },
+            "detail": {
+                "title": "Tratamento"
+            },
+            "nome": "Nome",
+            "descricao": "Descricao",
+            "dataAplicTrat": "Data Aplic Trat",
+            "consulta": "Consulta"
+        }
+    }
+}

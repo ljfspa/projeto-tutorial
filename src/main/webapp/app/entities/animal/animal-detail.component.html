@@ -1,0 +1,66 @@
+
+<div *ngIf="animal">
+    <h2><span jhiTranslate="clinicvetApp.animal.detail.title">Animal</span> {{animal.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="clinicvetApp.animal.fotoAnimal">Foto Animal</span></dt>
+        <dd>
+            <div *ngIf="animal.fotoAnimal">
+                <a (click)="openFile(animal.fotoAnimalContentType, animal.fotoAnimal)">
+                    <img [src]="'data:' + animal.fotoAnimalContentType + ';base64,' + animal.fotoAnimal" style="max-width: 100%;" alt="animal image"/>
+                </a>
+                {{animal.fotoAnimalContentType}}, {{byteSize(animal.fotoAnimal)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.animal.nomeAnimal">Nome Animal</span></dt>
+        <dd>
+            <span>{{animal.nomeAnimal}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.animal.sexo">Sexo</span></dt>
+        <dd>
+            <span>{{animal.sexo}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.animal.pelagem">Pelagem</span></dt>
+        <dd>
+            <span>{{animal.pelagem}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.animal.obsTosa">Obs Tosa</span></dt>
+        <dd>
+            <span>{{animal.obsTosa}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.animal.nascimento">Nascimento</span></dt>
+        <dd>
+            <span>{{animal.nascimento | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.animal.porte">Porte</span></dt>
+        <dd>
+            <span jhiTranslate="{{'clinicvetApp.TpPorte.' + animal.porte}}">{{animal.porte}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.animal.raca">Raca</span></dt>
+        <dd>
+            <div *ngIf="animal.raca">
+                <a [routerLink]="['/raca', animal.raca?.id]">{{animal.raca?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.animal.especie">Especie</span></dt>
+        <dd>
+            <div *ngIf="animal.especie">
+                <a [routerLink]="['/especie', animal.especie?.id]">{{animal.especie?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'animal/'+ animal.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

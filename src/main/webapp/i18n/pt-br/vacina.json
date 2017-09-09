@@ -1,0 +1,23 @@
+{
+    "clinicvetApp": {
+        "vacina" : {
+            "home": {
+                "title": "Vacinas",
+                "createLabel": "Criar novo Vacina",
+                "createOrEditLabel": "Criar ou editar Vacina"
+            },
+            "created": "Um novo Vacina foi criado com o identificador {{ param }}",
+            "updated": "Um Vacina foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Vacina foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Vacina {{ id }}?"
+            },
+            "detail": {
+                "title": "Vacina"
+            },
+            "vacinaName": "Vacina Name",
+            "aplicVacina": "Aplic Vacina",
+            "consulta": "Consulta"
+        }
+    }
+}

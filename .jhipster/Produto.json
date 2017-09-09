@@ -1,0 +1,35 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "unidade",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "qtEstoque",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "validade",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "precoCompra",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "precoVenda",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20170908233119",
+    "entityTableName": "produto",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

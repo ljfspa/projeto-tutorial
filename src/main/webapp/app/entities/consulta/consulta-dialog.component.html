@@ -1,0 +1,67 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myConsultaLabel" jhiTranslate="clinicvetApp.consulta.home.createOrEditLabel">Create or edit a Consulta</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!consulta.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="consulta.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="clinicvetApp.consulta.dataConsulta" for="field_dataConsulta">Data Consulta</label>
+            <div class="input-group">
+                <input id="field_dataConsulta" type="text" class="form-control" name="dataConsulta" ngbDatepicker  #dataConsultaDp="ngbDatepicker" [(ngModel)]="consulta.dataConsulta"
+                />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" (click)="dataConsultaDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="clinicvetApp.consulta.horaConsulta" for="field_horaConsulta">Hora Consulta</label>
+            <input type="text" class="form-control" name="horaConsulta" id="field_horaConsulta"
+                [(ngModel)]="consulta.horaConsulta"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="clinicvetApp.consulta.motivoConsulta" for="field_motivoConsulta">Motivo Consulta</label>
+            <input type="text" class="form-control" name="motivoConsulta" id="field_motivoConsulta"
+                [(ngModel)]="consulta.motivoConsulta"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="clinicvetApp.consulta.descConsulta" for="field_descConsulta">Desc Consulta</label>
+            <input type="text" class="form-control" name="descConsulta" id="field_descConsulta"
+                [(ngModel)]="consulta.descConsulta"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="clinicvetApp.consulta.recetuario" for="field_recetuario">Recetuario</label>
+            <input type="text" class="form-control" name="recetuario" id="field_recetuario"
+                [(ngModel)]="consulta.recetuario"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="clinicvetApp.consulta.pesagem" for="field_pesagem">Pesagem</label>
+            <input type="number" class="form-control" name="pesagem" id="field_pesagem"
+                [(ngModel)]="consulta.pesagem"  />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="clinicvetApp.consulta.agendamento" for="field_agendamento">Agendamento</label>
+            <select class="form-control" id="field_agendamento" name="agendamento" [(ngModel)]="consulta.agendamento" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="agendamentoOption.id === consulta.agendamento?.id ? consulta.agendamento : agendamentoOption" *ngFor="let agendamentoOption of agendamentos; trackBy: trackAgendamentoById">{{agendamentoOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,45 @@
+
+<div *ngIf="produto">
+    <h2><span jhiTranslate="clinicvetApp.produto.detail.title">Produto</span> {{produto.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="clinicvetApp.produto.nome">Nome</span></dt>
+        <dd>
+            <span>{{produto.nome}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.produto.unidade">Unidade</span></dt>
+        <dd>
+            <span>{{produto.unidade}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.produto.qtEstoque">Qt Estoque</span></dt>
+        <dd>
+            <span>{{produto.qtEstoque}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.produto.validade">Validade</span></dt>
+        <dd>
+            <span>{{produto.validade | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.produto.precoCompra">Preco Compra</span></dt>
+        <dd>
+            <span>{{produto.precoCompra}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.produto.precoVenda">Preco Venda</span></dt>
+        <dd>
+            <span>{{produto.precoVenda}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'produto/'+ produto.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

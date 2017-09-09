@@ -1,0 +1,51 @@
+
+<div *ngIf="consulta">
+    <h2><span jhiTranslate="clinicvetApp.consulta.detail.title">Consulta</span> {{consulta.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="clinicvetApp.consulta.dataConsulta">Data Consulta</span></dt>
+        <dd>
+            <span>{{consulta.dataConsulta | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.consulta.horaConsulta">Hora Consulta</span></dt>
+        <dd>
+            <span>{{consulta.horaConsulta}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.consulta.motivoConsulta">Motivo Consulta</span></dt>
+        <dd>
+            <span>{{consulta.motivoConsulta}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.consulta.descConsulta">Desc Consulta</span></dt>
+        <dd>
+            <span>{{consulta.descConsulta}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.consulta.recetuario">Recetuario</span></dt>
+        <dd>
+            <span>{{consulta.recetuario}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.consulta.pesagem">Pesagem</span></dt>
+        <dd>
+            <span>{{consulta.pesagem}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.consulta.agendamento">Agendamento</span></dt>
+        <dd>
+            <div *ngIf="consulta.agendamento">
+                <a [routerLink]="['/agendamento', consulta.agendamento?.id]">{{consulta.agendamento?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'consulta/'+ consulta.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

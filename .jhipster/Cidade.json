@@ -1,0 +1,22 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "pessoa",
+            "otherEntityName": "pessoa",
+            "otherEntityRelationshipName": "cidade"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "cidade",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170908233112",
+    "entityTableName": "cidade",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

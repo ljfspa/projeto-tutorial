@@ -1,0 +1,22 @@
+{
+    "clinicvetApp": {
+        "cidade" : {
+            "home": {
+                "title": "Cidades",
+                "createLabel": "Criar novo Cidade",
+                "createOrEditLabel": "Criar ou editar Cidade"
+            },
+            "created": "Um novo Cidade foi criado com o identificador {{ param }}",
+            "updated": "Um Cidade foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Cidade foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Cidade {{ id }}?"
+            },
+            "detail": {
+                "title": "Cidade"
+            },
+            "cidade": "Cidade",
+            "pessoa": "Pessoa"
+        }
+    }
+}

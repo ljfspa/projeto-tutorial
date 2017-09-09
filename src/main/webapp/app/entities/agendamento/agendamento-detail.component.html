@@ -1,0 +1,29 @@
+
+<div *ngIf="agendamento">
+    <h2><span jhiTranslate="clinicvetApp.agendamento.detail.title">Agendamento</span> {{agendamento.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="clinicvetApp.agendamento.dataAgenda">Data Agenda</span></dt>
+        <dd>
+            <span>{{agendamento.dataAgenda | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicvetApp.agendamento.horaAgenda">Hora Agenda</span></dt>
+        <dd>
+            <span>{{agendamento.horaAgenda}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'agendamento/'+ agendamento.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

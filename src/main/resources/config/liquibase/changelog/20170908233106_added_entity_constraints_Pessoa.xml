@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Pessoa.
+    -->
+    <changeSet id="20170908233106-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="bairro_id"
+                                 baseTableName="pessoa"
+                                 constraintName="fk_pessoa_bairro_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bairro"/>
+
+        <addForeignKeyConstraint baseColumnNames="cidade_id"
+                                 baseTableName="pessoa"
+                                 constraintName="fk_pessoa_cidade_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cidade"/>
+
+        <addForeignKeyConstraint baseColumnNames="estado_id"
+                                 baseTableName="pessoa"
+                                 constraintName="fk_pessoa_estado_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="estado"/>
+
+    </changeSet>
+</databaseChangeLog>

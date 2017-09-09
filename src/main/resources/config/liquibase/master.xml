@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170908233106_added_entity_Pessoa.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170908233107_added_entity_Veterinario.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170908233108_added_entity_Cliente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170908233109_added_entity_Funcionario.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170908233110_added_entity_Animal.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170908233111_added_entity_Bairro.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170908233112_added_entity_Cidade.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170908233113_added_entity_Estado.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170908233114_added_entity_Consulta.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170908233115_added_entity_Agendamento.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170908233116_added_entity_Servico.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170908233117_added_entity_Especie.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170908233118_added_entity_Raca.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170908233119_added_entity_Produto.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170908233120_added_entity_Vacina.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170908233121_added_entity_Vermifugo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170908233122_added_entity_Tratamento.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20170908233106_added_entity_constraints_Pessoa.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170908233107_added_entity_constraints_Veterinario.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170908233109_added_entity_constraints_Funcionario.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170908233110_added_entity_constraints_Animal.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170908233114_added_entity_constraints_Consulta.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170908233116_added_entity_constraints_Servico.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170908233120_added_entity_constraints_Vacina.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170908233121_added_entity_constraints_Vermifugo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170908233122_added_entity_constraints_Tratamento.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+</databaseChangeLog>

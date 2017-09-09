@@ -1,0 +1,58 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "raca",
+            "otherEntityName": "raca",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "animal"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "especie",
+            "otherEntityName": "especie",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "animal"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "fotoAnimal",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "nomeAnimal",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sexo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pelagem",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "obsTosa",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nascimento",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "porte",
+            "fieldType": "TpPorte",
+            "fieldValues": "PEQUENO,MEDIO,GRANDE"
+        }
+    ],
+    "changelogDate": "20170908233110",
+    "entityTableName": "animal",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}
